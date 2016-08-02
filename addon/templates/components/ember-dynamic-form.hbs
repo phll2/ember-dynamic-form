@@ -1,0 +1,10 @@
+<div id="form-title">
+  <h3>{{titleText}}</h3>
+</div>
+
+<form {{action "save" on="submit"}}>
+  {{yield}}
+  <div class="text-center">
+    <button type="submit" class="btn btn-info">Submit</button>
+  </div>
+</form>

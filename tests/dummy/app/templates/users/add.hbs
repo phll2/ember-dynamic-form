@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>User Form</h1>
+
+    {{#ember-dynamic-form saveWithoutFiles=(action "save")}}
+      <fieldset>
+        {{input-block
+          label='Username'
+          value=model.username
+          required=true
+          icon='fa-user'
+          onValueUpdate=(action "setUsername")
+        }}
+
+        {{input-block
+          label='Age'
+          value=model.age
+          onValueUpdate=(action "setAge")
+          placeholder='age is optional'
+          inputId='ageInput'
+        }}
+
+        {{input-block
+          type='date'
+          label='Date'
+          pattern="\d{4}/\d{1,2}/\d{1,2}"
+          placeholder="YYYY/MM/DD"
+          value=model.date
+          required=true
+          onValueUpdate=(action "setAge")
+        }}
+
+        {{input-block
+          type='password'
+          label='Password'
+          value=model.password
+          icon='fa-key'
+          iconRight=true
+          onValueUpdate=(action "setPassword")
+        }}
+
+        {{select-block 
+          label="Company"
+          required=true
+          options=companySelectOptions
+          selected=model.company.id
+          onOptionSelect=(action "setCompany")
+        }}
+
+        {{textarea-block
+          label="Description"
+          value=model.description
+          required=true
+          onValueUpdate=(action "setDescription")
+        }}
+      </fieldset>
+    {{/ember-dynamic-form}}
+  </div>
+</div>

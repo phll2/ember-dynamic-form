@@ -1,0 +1,32 @@
+<label for={{inputId}}>{{label}}</label>
+{{#if icon}}
+  <div class="input-group">
+    {{#unless iconRight}}
+      <span class="input-group-addon">
+        <i class="fa {{icon}}" aria-hidden="true"></i>
+      </span>
+    {{/unless}}
+    {{input 
+      type=type
+      value=oneWayValue
+      id=inputId
+      placeholder=placeholder
+      pattern=pattern
+      required=required
+      class="form-control"}}
+    {{#if iconRight}}
+      <span class="input-group-addon">
+        <i class="fa {{icon}}" aria-hidden="true"></i>
+      </span>
+    {{/if}}
+  </div>
+{{else}}
+  {{input 
+    type=type
+    value=oneWayValue
+    id=inputId
+    placeholder=placeholder
+    pattern=pattern
+    required=required
+    class="form-control"}}
+{{/if}}
