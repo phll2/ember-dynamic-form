@@ -1,6 +1,6 @@
 {
   "name": "ember-dynamic-form",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,10 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phll2/ember-dynamic-form.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
