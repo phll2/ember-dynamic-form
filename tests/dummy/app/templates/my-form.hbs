@@ -3,7 +3,7 @@
     <h1>My Form</h1>
     {{#ember-dynamic-form saveWithoutFiles=(action "save")}}
       <fieldset>
-        {{input-block
+        {{ember-dynamic-form-input-block
           label='Username'
           value=model.username
           required=true
@@ -11,25 +11,25 @@
           onValueUpdate=(action "setUsername")
         }}
 
-        {{input-block
+        {{ember-dynamic-form-input-block
           label='Age'
           value=model.age
-          onValueUpdate=(action "setAge")
           placeholder='age is optional'
           inputId='ageInput'
+          onValueUpdate=(action "setAge")
         }}
 
-        {{input-block
+        {{ember-dynamic-form-input-block
           type='date'
           label='Date'
           pattern="\d{4}/\d{1,2}/\d{1,2}"
           placeholder="YYYY/MM/DD"
           value=model.date
           required=true
-          onValueUpdate=(action "setAge")
+          onValueUpdate=(action "setDate")
         }}
 
-        {{input-block
+        {{ember-dynamic-form-input-block
           type='password'
           label='Password'
           value=model.password
@@ -38,7 +38,7 @@
           onValueUpdate=(action "setPassword")
         }}
 
-        {{select-block 
+        {{ember-dynamic-form-select-block 
           label="Company"
           required=true
           options=companySelectOptions
@@ -46,7 +46,7 @@
           onOptionSelect=(action "setCompany")
         }}
 
-        {{textarea-block
+        {{ember-dynamic-form-textarea-block
           label="Description"
           value=model.description
           required=true

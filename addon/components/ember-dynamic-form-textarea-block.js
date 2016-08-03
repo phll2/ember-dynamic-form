@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/textarea-block';
+import layout from '../templates/components/ember-dynamic-form-textarea-block';
 
 //component options
 /*

@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 
   actions: {
     setUsername(value) {
-      this.get('model').set('reference', value);
+      this.get('model').set('username', value);
     },
     setAge(value) {
       this.get('model').set('age', value);

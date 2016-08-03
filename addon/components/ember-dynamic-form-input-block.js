@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from '../templates/components/input-block';
+import layout from '../templates/components/ember-dynamic-form-input-block';
 
 //component options
 /*
