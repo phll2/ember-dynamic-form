@@ -1,6 +1,11 @@
 import Ember from 'ember';
 import layout from '../templates/components/ember-dynamic-form';
 
+//component options
+/*
+ *title
+ */
+
 export default Ember.Component.extend({
   layout,
   classNames: ['dynamic-form'],
