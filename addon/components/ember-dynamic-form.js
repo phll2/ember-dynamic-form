@@ -4,6 +4,7 @@ import layout from '../templates/components/ember-dynamic-form';
 //component options
 /*
  *title
+ *hasRequired
  */
 
 export default Ember.Component.extend({
