@@ -21,7 +21,7 @@
         {{ember-dynamic-form-input-block
           type='date'
           label='Date'
-          pattern="\d{4}/\d{1,2}/\d{1,2}"
+          pattern="\d{4}/\d{2}/\d{2}"
           placeholder="YYYY/MM/DD"
           value=model.date
           required=true
@@ -32,6 +32,7 @@
           type='password'
           label='Password'
           value=model.password
+          required=true
           icon='fa-key'
           iconRight=true
           onValueUpdate=(action "setPassword")

@@ -25,6 +25,7 @@ export default Ember.Component.extend({
   label: 'You need to provide a label for this input',
   iconRight: false,
   required: false,
+  hasError: false,
 
   // if no inputId provided use label
   inputId: Ember.computed('label', function() {
@@ -39,7 +40,19 @@ export default Ember.Component.extend({
 
   oneWayValueChange: Ember.observer('oneWayValue', function() {
     let oneWayValue = this.get('oneWayValue');
-    let inputId = this.get('inputId');
+    let hasError = this.checkValid(oneWayValue);
+    this.set('hasError', hasError);
     this.attrs.onValueUpdate(oneWayValue);
-  })
+  }),
+
+  checkValid: function(value) {
+    let inputId = this.get('inputId');
+    if (this.get('required') && Ember.isBlank(value)) {
+      return true;
+    } else {
+      // the validity object contains a valid property which is set to
+      // true (so invert in return) if all validity elements have passed
+      return !document.getElementById(inputId).validity.valid;
+    }
+  }
 });
