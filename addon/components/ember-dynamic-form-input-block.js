@@ -39,6 +39,7 @@ export default Ember.Component.extend({
 
   oneWayValueChange: Ember.observer('oneWayValue', function() {
     let oneWayValue = this.get('oneWayValue');
+    let inputId = this.get('inputId');
     this.attrs.onValueUpdate(oneWayValue);
   })
 });
