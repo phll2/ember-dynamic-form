@@ -26,6 +26,7 @@ export default Ember.Component.extend({
   iconRight: false,
   required: false,
   hasError: false,
+  hasSuccess: false,
 
   // if no inputId provided use label
   inputId: Ember.computed('label', function() {
@@ -42,6 +43,7 @@ export default Ember.Component.extend({
     let oneWayValue = this.get('oneWayValue');
     let hasError = this.checkValid(oneWayValue);
     this.set('hasError', hasError);
+    this.set('hasSuccess', !hasError);
     this.attrs.onValueUpdate(oneWayValue);
   }),
 

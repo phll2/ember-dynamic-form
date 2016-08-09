@@ -83,3 +83,13 @@ test('the onValueUpdate action sends the value up to the bound action', function
   this.render(hbs`{{ember-dynamic-form-textarea-block onValueUpdate=(action "mockOnValueUpdate")}}`);
   this.$('textarea').val('some input').change();
 });
+
+test('if the value of a textarea which has required=true is changed to non-blank, the has-success class is added', function(assert) {
+  assert.expect(2);
+  this.on('mockOnValueUpdate', function() {});
+  this.render(hbs`{{ember-dynamic-form-textarea-block required=true onValueUpdate=(action "mockOnValueUpdate")}}`);
+  assert.equal(this.$('div[class*=has-success]').length, 0, 'there is no element with the has-success class');
+  this.$('textarea').val('some value').change();
+  assert.equal(this.$('div[class*=has-success]').length, 1, 'has-success class has been added');
+});
+

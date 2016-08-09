@@ -127,3 +127,17 @@ test('the onOptionSelect action sends the value up to the bound action', functio
   this.render(hbs`{{ember-dynamic-form-select-block options=options onOptionSelect=(action "mockOnOptionSelect")}}`);
   this.$('select').find('option[value="' + options[0].value + '"]').trigger('change');
 });
+
+test('if the value of a select which has required=true is set to non-blank, the has-success class is added', function(assert) {
+  assert.expect(2);
+  this.on('mockOnOptionSelect', function(value) {
+    this.set('selected', value); 
+    assert.equal(this.$('div[class*=has-success]').length, 1, 'has-success class has been added');
+  });
+  let options = [ { value:"1", label:"some value" } ];
+  this.set('options', options);
+  this.set('selected', undefined);
+  this.render(hbs`{{ember-dynamic-form-select-block required=true options=options selected=selected onOptionSelect=(action "mockOnOptionSelect")}}`);
+  assert.equal(this.$('div[class*=has-success]').length, 0, 'there is no element with the has-success class');
+  this.$('select').val('1').change(); 
+});

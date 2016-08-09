@@ -20,14 +20,19 @@ export default Ember.Component.extend({
   attributeBindings: ['blockId:id'],
 
   label: 'You need to provide a label for this select',
-  required: false,
   placeholder: 'Select',
+  required: false,
+  hasError: false,
+  hasSuccess: false,
 
   isSelected: Ember.computed('selected', function() {
     let selected = this.get('selected');
     if (selected !== undefined) {
+      this.set('hasError', false);
+      this.set('hasSuccess', true);
       return selected;
     } else {
+      this.set('hasSuccess', false);
       return null;
     }
   }),
@@ -45,6 +50,13 @@ export default Ember.Component.extend({
   actions: {
     setOption(id) {
       this.attrs.onOptionSelect(id);
+    },
+    checkSelected() {
+      if (this.get('isSelected')) {
+        this.set('hasError', false);
+      } else {
+        this.set('hasError', true);
+      }
     }
   }
 });

@@ -177,3 +177,24 @@ test('if the pattern has been satisfied the has-error class is not added', funct
   this.$('input').val('1111/11/11').change();
   assert.equal(this.$('div[class*=has-error]').length, 0, 'has-error class has not been added');
 });
+
+test('if the pattern has been satisfied the has-success class is added', function(assert) {
+  assert.expect(2);
+  let pattern = "\\d{4}/\\d{2}/\\d{2}";
+  this.set('pattern', pattern);
+  this.on('mockOnValueUpdate', function() {});
+  this.render(hbs`{{ember-dynamic-form-input-block pattern=pattern onValueUpdate=(action "mockOnValueUpdate")}}`);
+  assert.equal(this.$('div[class*=has-success]').length, 0, 'there is no element with the has-success class');
+  this.$('input').val('1111/11/11').change();
+  assert.equal(this.$('div[class*=has-success]').length, 1, 'has-success class has been added');
+});
+
+test('if the value of a input (without icon) which has required=true is changed to non-blank, the has-success class is added', function(assert) {
+  assert.expect(2);
+  this.on('mockOnValueUpdate', function() {});
+  this.render(hbs`{{ember-dynamic-form-input-block required=true onValueUpdate=(action "mockOnValueUpdate")}}`);
+  assert.equal(this.$('div[class*=has-success]').length, 0, 'there is no element with the has-success class');
+  this.$('input').val('some value').change();
+  assert.equal(this.$('div[class*=has-success]').length, 1, 'has-success class has been added');
+});
+
