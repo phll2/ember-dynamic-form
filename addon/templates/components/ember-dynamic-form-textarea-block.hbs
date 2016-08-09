@@ -1,8 +1,10 @@
 {{label-element for=textareaId required=required label=label}}
-{{textarea 
-  id=textareaId 
-  value=oneWayValue 
-  cols=cols
-  rows=rows
-  required=required
-  class="form-control"}}
+<div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  {{textarea 
+    id=textareaId 
+    value=oneWayValue 
+    cols=cols
+    rows=rows
+    required=required
+    class="form-control"}}
+</div>
