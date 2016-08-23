@@ -13,8 +13,11 @@ export default Ember.Component.extend({
   dropzone: null,
 
   didReceiveAttrs() {
-    this.attrs.onRender();
+    if (this.attrs.onRender) {
+      this.attrs.onRender();
+    }
   },
+
 
   didInsertElement() {
     this._super(...arguments);
