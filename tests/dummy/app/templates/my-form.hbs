@@ -1,6 +1,11 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
-    {{#ember-dynamic-form title="My Form" hasRequired=true saveWithoutFiles=(action "save")}}
+    {{#ember-dynamic-form 
+      title="My Form" 
+      hasRequired=true 
+      onRender=(action "clearPromisesArray")
+      saveWithoutFiles=(action "save")}}
+
       <fieldset>
         {{ember-dynamic-form-input-block
           label='Username'
@@ -52,6 +57,21 @@
           required=true
           onValueUpdate=(action "setDescription")
         }}
+
+      </fieldset>
+
+      <fieldset>
+        <legend>File upload</legend>
+          {{drop-zone 
+            url=uploadUrl 
+            id="fileUpload"
+            class="dropzone"
+            autoProcessQueue=false 
+            addRemoveLinks=true 
+            uploadMultiple=true
+            completemultiple=(action "saveWithFiles") 
+            dictDefaultMessage="Add files here"
+          }}
       </fieldset>
     {{/ember-dynamic-form}}
   </div>

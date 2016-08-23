@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  uploadUrl: `api/uploadFiles`,
+  promisesArray : Ember.A(),
+
+  // create array of companies for the select options
   companySelectOptions: Ember.computed.map('companies', function(company) {
     return Ember.ObjectProxy.create({
       value: company.get('id'),
@@ -8,7 +12,22 @@ export default Ember.Controller.extend({
     });
   }),
 
+  createFile(fileObject) {
+    return {
+      originalName: fileObject.originalname,
+      encoding: fileObject.encoding,
+      mimeType: fileObject.mimetype,
+      destination: fileObject.destination,
+      fileName: fileObject.filename,
+      path: fileObject.path,
+      size: fileObject.size
+    };
+  },
+
   actions: {
+    clearPromisesArray() { // remove old files
+      this.get('promisesArray').clear();
+    },
     setUsername(value) {
       this.get('model').set('username', value);
     },
@@ -27,9 +46,24 @@ export default Ember.Controller.extend({
     setCompany(id) {
       this.get('model').set('company', id);
     },
+    saveWithFiles(response) {
+      // each file response in the array contains a full json array of all the 
+      // uploaded files, so just take the data from the first file response
+      let jsonFileObjects = JSON.parse(response[0].xhr.response);
+      jsonFileObjects.forEach(fileObject => {
+        let file = this.createFile(fileObject);
+        console.log('saved ' + file.originalName);
+      });
+
+      Ember.RSVP.all(this.get('promisesArray')).then(files => {
+        this.get('model').set('files', files);
+        this.send('save');
+      }).catch(err => {
+        console.log('failed: ' + err);
+      });
+    },
     save() {
-      let user = this.get('model');
-      console.log(user);
+      console.log(this.get('model'));
     }
   }
 });

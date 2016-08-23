@@ -10,18 +10,25 @@ import layout from '../templates/components/ember-dynamic-form';
 export default Ember.Component.extend({
   layout,
   classNames: ['dynamic-form'],
+  dropzone: null,
+
+  didReceiveAttrs() {
+    this.attrs.onRender();
+  },
+
+  didInsertElement() {
+    this._super(...arguments);
+    this.set('dropzone', Dropzone.forElement('#fileUpload'));
+  },
 
   actions: {
-    //completeMultipleEvent(files) {
-      //this.attrs.saveWithFiles(files);
-    //},
     save() {
-      //let dropzone = this.get('dropzone');
-      //if (dropzone.files.length) {
-        //dropzone.processQueue();
-      //} else {
+      let dropzone = this.get('dropzone');
+      if (dropzone.files.length) {
+        dropzone.processQueue();
+      } else {
         this.attrs.saveWithoutFiles();
-      //}
+      }
     }
   }
 });
