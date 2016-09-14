@@ -1,0 +1,19 @@
+{{label-element required=required label=label}}
+<div class="panel {{if hasError "panel-danger" "panel-success"}}">
+  <div class="panel-body">
+    <p class="num-selected">Selected: {{checkedItems.length}}</p>
+    <label>
+      {{input type="checkbox" class="check-all" checked=allChecked click=(action "toggleAll")}}
+      <span>All</span>
+    </label>
+    {{#each proxiedModels as |model|}}
+      <div class="checkbox">
+        <label>
+          {{input type="checkbox" checked=model.checked}}
+          {{getDynamicProperty model displayProperty}}
+        </label>
+      </div>
+    {{/each}}
+
+  </div>
+</div>

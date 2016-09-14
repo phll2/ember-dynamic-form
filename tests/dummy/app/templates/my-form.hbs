@@ -58,6 +58,14 @@
           onValueUpdate=(action "setDescription")
         }}
 
+        {{ember-dynamic-form-checkbox-block 
+          label='Companies'
+          model=companies
+          currentModels=model.companies
+          displayProperty="name" 
+          onCheckUpdate=(action "setCompanies")
+        }}
+
       </fieldset>
 
       <fieldset>

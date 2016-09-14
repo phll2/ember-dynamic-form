@@ -4,9 +4,7 @@
     "ember": "~2.8.0-beta.1",
     "ember-cli-shims": "0.1.1",
     "bootstrap": "~3.3.5",
-    "dropzone": "^4.3.0"
-  },
-  "devDependencies": {
+    "dropzone": "^4.3.0",
     "font-awesome": "^4.6.3"
   }
 }

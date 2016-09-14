@@ -21,13 +21,15 @@ export default Ember.Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    this.set('dropzone', Dropzone.forElement('#fileUpload'));
+    if (document.getElementsByClassName('dropzone').length > 0) {
+      this.set('dropzone', Dropzone.forElement('#fileUpload'));
+    }
   },
 
   actions: {
     save() {
       let dropzone = this.get('dropzone');
-      if (dropzone.files.length) {
+      if (dropzone && dropzone.files.length) {
         dropzone.processQueue();
       } else {
         this.attrs.saveWithoutFiles();
