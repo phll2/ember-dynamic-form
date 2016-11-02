@@ -23,7 +23,7 @@
   <div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     <select id={{selectId}} class="form-control" required={{required}} onchange={{action "setOption" value="target.value"}} 
       onblur={{action "checkSelected"}}>
-      <option value="" disabled=true selected={{eq isSelected null}}>{{placeholder}}</option>
+      <option value="" disabled=true selected={{eq isSelected false}}>{{placeholder}}</option>
       {{#each options as |option|}}
         <option value={{option.value}} selected={{eq isSelected option.value}}>{{option.label}}</option>
       {{/each}}

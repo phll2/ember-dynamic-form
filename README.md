@@ -1,4 +1,4 @@
-# Ember-dynamic-form
+# ember-dynamic-form
 
 This README outlines the details of collaborating on this Ember addon.
 
@@ -12,7 +12,7 @@ This README outlines the details of collaborating on this Ember addon.
 ## Running
 
 * `ember serve`
-* Visit your app at [http://localhost:4200/myForm](http://localhost:4200/myForm).
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ## Running Tests
 
@@ -24,4 +24,4 @@ This README outlines the details of collaborating on this Ember addon.
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).

@@ -24,16 +24,17 @@ export default Ember.Component.extend({
   required: false,
   hasError: false,
   hasSuccess: false,
+  isSelected: false,
 
-  isSelected: Ember.computed('selected', function() {
+  checkSelected: Ember.observer('selected', function() {
     let selected = this.get('selected');
     if (selected !== undefined) {
       this.set('hasError', false);
       this.set('hasSuccess', true);
-      return selected;
+      this.set('isSelected', true);
     } else {
+      this.set('isSelected', false);
       this.set('hasSuccess', false);
-      return null;
     }
   }),
 

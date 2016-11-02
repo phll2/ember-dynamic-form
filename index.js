@@ -7,6 +7,11 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
 
+    app.import('bower_components/dropzone/dist/min/basic.min.css');
+    app.import('bower_components/dropzone/dist/min/dropzone-amd-module.min.js');
+    app.import('bower_components/dropzone/dist/min/dropzone.min.css');
+    app.import('bower_components/dropzone/dist/min/dropzone.min.js');
+
     app.import('bower_components/font-awesome/css/font-awesome.min.css');
     app.import('bower_components/font-awesome/fonts/FontAwesome.otf', {
       destDir: 'fonts'
