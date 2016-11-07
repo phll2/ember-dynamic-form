@@ -8,7 +8,7 @@
     {{/unless}}
     <select id={{selectId}} class="form-control" required={{required}} onchange={{action "setOption" value="target.value"}}
      onblur={{action "checkSelected"}}>
-      <option value="" disabled=true selected={{eq selected null}}>{{placeholder}}</option>
+      <option value="" disabled=true selected={{eq selected undefined}}>{{placeholder}}</option>
       {{#each options as |option|}}
         <option value={{option.value}} selected={{eq selected option.value}}>{{option.label}}</option>
       {{/each}}
@@ -23,7 +23,7 @@
   <div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     <select id={{selectId}} class="form-control" required={{required}} onchange={{action "setOption" value="target.value"}} 
       onblur={{action "checkSelected"}}>
-      <option value="" disabled=true selected={{eq selected false}}>{{placeholder}}</option>
+      <option value="" disabled=true selected={{eq selected undefined}}>{{placeholder}}</option>
       {{#each options as |option|}}
         <option value={{option.value}} selected={{eq selected option.value}}>{{option.label}}</option>
       {{/each}}
