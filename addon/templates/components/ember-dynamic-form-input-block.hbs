@@ -1,6 +1,6 @@
 {{label-element for=inputId required=required label=label}}
 {{#if icon}}
-  <div class="input-group {{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  <div id={{blockId}} class="input-group {{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     {{#unless iconRight}}
       <span class="input-group-addon">
         <i class="fa {{icon}}" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
     {{/if}}
   </div>
 {{else}}
-  <div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  <div id={{blockId}} class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     {{input 
       type=type
       value=oneWayValue

@@ -8,6 +8,17 @@ export default Ember.Component.extend({
   currentModels: [],
   required: false,
 
+  // if no checkboxId provided use label
+  checkboxId: Ember.computed('label', function() {
+    let random = Math.floor((Math.random() * 1000) + 1);
+    return this.get('label').toLowerCase().replace(/ /g, '') + random;
+  }),
+
+  // id of this component block
+  blockId: Ember.computed('checkboxId', function() {
+    return this.get('checkboxId') + 'Block';
+  }),
+
   hasError: Ember.computed('required', 'checkedItems', function() {
     if (this.get('required')) {
       let checked = this.get('checkedItems').length;
