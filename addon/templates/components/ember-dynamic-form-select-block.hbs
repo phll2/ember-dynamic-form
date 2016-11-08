@@ -1,6 +1,6 @@
 {{label-element for=selectId required=required label=label}}
 {{#if icon}}
-  <div id={{blockId}} class="input-group {{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  <div class="input-group {{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     {{#unless iconRight}}
       <span class="input-group-addon">
         <i class="fa {{icon}}" aria-hidden="true"></i>
@@ -20,7 +20,7 @@
     {{/if}}
   </div>
 {{else}}
-  <div id={{blockId}} class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  <div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
     <select id={{selectId}} class="form-control" required={{required}} onchange={{action "setOption" value="target.value"}} 
       onblur={{action "checkSelected"}}>
       <option value="" disabled=true selected={{eq selected undefined}}>{{placeholder}}</option>

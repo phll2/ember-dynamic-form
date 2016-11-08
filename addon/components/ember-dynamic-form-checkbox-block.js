@@ -4,6 +4,7 @@ import layout from '../templates/components/ember-dynamic-form-checkbox-block';
 export default Ember.Component.extend({
   layout,
   classNames: ['checkbox-list'],
+  attributeBindings: ['blockId:id'],
   displayProperty: 'id',
   currentModels: [],
   required: false,
