@@ -1,6 +1,6 @@
 /*jshint node:true*/
 module.exports = {
-  description: ''
+  description: '',
 
   // locals: function(options) {
   //   // Return custom template variables here.
@@ -9,7 +9,10 @@ module.exports = {
   //   };
   // }
 
-  // afterInstall: function(options) {
-  //   // Perform extra work here.
-  // }
+  afterInstall: function() {
+    return this.addBowerPackagesToProject([
+        { name: 'font-awesome' }
+    ]);
+  }
+
 };

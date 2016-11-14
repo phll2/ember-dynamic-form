@@ -1,6 +1,6 @@
 {
   "name": "ember-dynamic-form",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
-    "ember-cli-htmlbars": "^1.0.10"
+    "ember-cli-htmlbars": "^1.0.10",
+    "ember-truth-helpers": "1.2.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -45,7 +46,6 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "ember-truth-helpers": "1.2.0",
     "ember-welcome-page": "^2.0.1",
     "express": "^4.14.0",
     "glob": "^7.1.1",
