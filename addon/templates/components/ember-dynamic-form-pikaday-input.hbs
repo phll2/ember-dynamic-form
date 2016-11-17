@@ -1,0 +1,18 @@
+{{label-element for=inputId required=required label=label}}
+<div class="{{if hasError "has-error"}} {{if hasSuccess "has-success"}}">
+  {{pikaday-input 
+    id=inputId
+    placeholder=placeholder
+    format=format
+    required=required 
+    yearRange=yearRange
+    readonly=readonly
+    firstDay=firstDay
+    minDate=minDate
+    maxDate=maxDate
+    useUTC=useUTC
+    onSelection=(action 'setDate')
+    class="form-control" 
+  }}
+</div>
+

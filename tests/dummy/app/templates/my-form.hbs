@@ -66,6 +66,14 @@
           onCheckUpdate=(action "setCompanies")
         }}
 
+        {{ember-dynamic-form-pikaday-input
+          inputId="testdate"
+          label="pikadate label"
+          placeholder="YYYY-MM-DD"
+          format="YYYY-MM-DD"
+          required=true
+          onDateSet=(action 'setTestDate')
+        }}
       </fieldset>
 
       <fieldset>

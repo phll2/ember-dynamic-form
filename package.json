@@ -1,6 +1,6 @@
 {
   "name": "ember-dynamic-form",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
@@ -23,6 +23,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.0.10",
+    "ember-pikaday": "2.2.0",
     "ember-truth-helpers": "1.2.0"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-jshint": "^2.0.1",
+    "ember-cli-moment-shim": "2.2.1",
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sri": "^2.1.0",

@@ -50,6 +50,10 @@ export default Ember.Controller.extend({
       this.get('model').set('companies', companies);
       console.log('companies set: ' + this.get('model').get('companies').length);
     },
+    setTestDate(date) {
+      this.get('model').set('testDate', date);
+      console.log('testDate set: ' + this.get('model').get('testDate'));
+    },
     saveWithFiles(response) {
       // each file response in the array contains a full json array of all the 
       // uploaded files, so just take the data from the first file response
