@@ -58,7 +58,7 @@ export default Ember.Component.extend({
 
   actions: {
     setDate(value) {
-      this.attrs.onDateSet(value);
+      this.set('oneWayValue', value);
     }
   }
 });
